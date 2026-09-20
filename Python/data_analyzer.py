@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('test/loadcell_data.csv')
+df = pd.read_csv('loadcell_data.csv')
 
 t = df['timestamp_ms'].values
 adc = df['raw_adc'].values
@@ -33,7 +33,7 @@ sqnr_ly_thuyet = []
 
 # Khảo sát từ 4 bit đến 16 bit
 for b in range(4, 17):
-    # Số mức lượng tử L = 2^b
+    # Số mức lượng tử
     L = 2**b
     delta = 1.0 / (L - 1)  # Bước lượng tử
     
@@ -86,7 +86,7 @@ plt.ylabel('SQNR (dB)')
 plt.legend()
 plt.grid(True)
 
-# Thay đổi tần số lấy mẫu (Decimation / Hạ mẫu)
+# Thay đổi tần số lấy mẫu
 plt.subplot(3, 1, 3)
 idx_zoom = np.where((thoi_gian >= 2.0) & (thoi_gian <= 6.0))[0]
 
